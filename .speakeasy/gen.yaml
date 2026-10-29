@@ -1,0 +1,107 @@
+configVersion: 2.0.0
+generation:
+  devContainers:
+    enabled: true
+    schemaPath: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi
+  sdkClassName: mistral
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: true
+    nameOverrideFeb2026: true
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  inferSSEOverload: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits:
+    enabled: "true"
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
+typescript:
+  version: 2.6.3
+  acceptHeaderEnum: true
+  additionalDependencies:
+    dependencies:
+      '@opentelemetry/semantic-conventions': ^1.40.0
+      ws: ^8.18.0
+      zod-to-json-schema: ^3.25.0
+    devDependencies:
+      '@opentelemetry/api': ^1.9.0
+      '@types/node': ^22.0.0
+      '@types/ws': ^8.5.13
+    peerDependencies:
+      '@opentelemetry/api': ^1.9.0
+  additionalPackageJSON:
+    description: TypeScript client library for the Mistral AI API
+    license: Apache-2.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
+  author: Mistral AI
+  baseErrorName: MistralError
+  clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: false
+  defaultErrorName: SDKError
+  enableCustomCodeRegions: true
+  enableMCPServer: false
+  enableReactQuery: false
+  enumFormat: union
+  envVarPrefix: MISTRAL
+  exportZodModelNamespace: false
+  fixEnumNameSanitization: false
+  flatAdditionalProperties: true
+  flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
+  formStringArrayEncodeMode: array
+  forwardCompatibleEnumsByDefault: true
+  forwardCompatibleUnionsByDefault: tagged-only
+  generateExamples: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inferUnionDiscriminators: true
+  inputModelSuffix: input
+  jsonpath: rfc9535
+  laxMode: strict
+  legacyFileNaming: true
+  maxMethodParams: 0
+  methodArguments: infer-optional-args
+  modelPropertyCasing: camel
+  moduleFormat: esm
+  multipartArrayFormat: standard
+  outputModelSuffix: output
+  packageName: '@mistralai/mistralai'
+  preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
+  responseFormat: flat
+  sseFlatResponse: false
+  templateVersion: v2
+  unionStrategy: populated-fields
+  usageSDKInitImports: []
+  useIndexModules: true
+  useOxlint: true
+  useTsgo: true
+  zodVersion: v4

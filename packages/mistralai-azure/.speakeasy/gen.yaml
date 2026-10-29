@@ -1,0 +1,93 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: MistralAzure
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: true
+    nameOverrideFeb2026: true
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits:
+    enabled: "true"
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
+typescript:
+  version: 2.0.0
+  acceptHeaderEnum: true
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON:
+    description: TypeScript client library for Mistral AI on Azure
+    license: Apache-2.0
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
+  author: Mistral AI
+  baseErrorName: MistralAzureError
+  clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: false
+  defaultErrorName: SDKError
+  enableCustomCodeRegions: false
+  enableMCPServer: false
+  enableReactQuery: false
+  enumFormat: union
+  envVarPrefix: MISTRAL
+  exportZodModelNamespace: false
+  fixEnumNameSanitization: false
+  flatAdditionalProperties: true
+  flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
+  formStringArrayEncodeMode: array
+  forwardCompatibleEnumsByDefault: true
+  forwardCompatibleUnionsByDefault: tagged-only
+  generateExamples: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inferUnionDiscriminators: true
+  inputModelSuffix: input
+  jsonpath: rfc9535
+  laxMode: strict
+  legacyFileNaming: true
+  maxMethodParams: 0
+  methodArguments: infer-optional-args
+  modelPropertyCasing: camel
+  moduleFormat: esm
+  multipartArrayFormat: standard
+  outputModelSuffix: output
+  packageName: '@mistralai/mistralai-azure'
+  preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
+  responseFormat: flat
+  sseFlatResponse: false
+  templateVersion: v2
+  unionStrategy: populated-fields
+  usageSDKInitImports: []
+  useIndexModules: true
+  useOxlint: true
+  useTsgo: true
+  zodVersion: v4

@@ -1,0 +1,93 @@
+speakeasyVersion: 1.763.6
+sources:
+    mistral-azure-source:
+        sourceNamespace: mistral-openapi-azure
+        sourceRevisionDigest: sha256:faccd49c0a52252b8dfcc666a6a1ba3fa5c7eb36f93c58c9b49547c98a254918
+        sourceBlobDigest: sha256:b6f756ef1d57d93defe29a9f6789c746bd0c3b09e3f9e5fa0344ddf9ca47e5d7
+        tags:
+            - latest
+            - speakeasy-mistralai-azure-sdk-regen-republish
+    mistral-google-cloud-source:
+        sourceNamespace: mistral-openapi-google-cloud
+        sourceRevisionDigest: sha256:34edde5edcaf43acc036c9635cf4c60ce4e86f49b3fa2bed8960b995454e8d7c
+        sourceBlobDigest: sha256:4e9e44f332073700612c1311c0d844241cc4b206140b82d5951879e1efdb0f2d
+        tags:
+            - latest
+            - speakeasy-mistralai-gcp-sdk-regen-republish
+    mistral-openapi:
+        sourceNamespace: mistral-openapi
+        sourceRevisionDigest: sha256:d0ce984b4c030ab9d532545d8935f6e4e12ab160e77dc5ca0b8d5924f7d78480
+        sourceBlobDigest: sha256:72d88796291d78aaa55ee4eb609cfc5f62065ee3795180d4d57404c72aa19657
+        tags:
+            - latest
+targets:
+    mistralai-azure-sdk:
+        source: mistral-azure-source
+        sourceNamespace: mistral-openapi-azure
+        sourceRevisionDigest: sha256:faccd49c0a52252b8dfcc666a6a1ba3fa5c7eb36f93c58c9b49547c98a254918
+        sourceBlobDigest: sha256:b6f756ef1d57d93defe29a9f6789c746bd0c3b09e3f9e5fa0344ddf9ca47e5d7
+        codeSamplesNamespace: mistral-openapi-azure-code-samples
+        codeSamplesRevisionDigest: sha256:88c09df8b388fd1f8d27d6ad06d2f306608f129e845d4da2ee6ea7eb465e10b7
+    mistralai-gcp-sdk:
+        source: mistral-google-cloud-source
+        sourceNamespace: mistral-openapi-google-cloud
+        sourceRevisionDigest: sha256:34edde5edcaf43acc036c9635cf4c60ce4e86f49b3fa2bed8960b995454e8d7c
+        sourceBlobDigest: sha256:4e9e44f332073700612c1311c0d844241cc4b206140b82d5951879e1efdb0f2d
+        codeSamplesNamespace: mistral-openapi-google-cloud-code-samples
+        codeSamplesRevisionDigest: sha256:e40a24c9d69a895e982c0b0fbf274b2fe2cc8ff9611689263732c9920691fc43
+    mistralai-sdk:
+        source: mistral-openapi
+        sourceNamespace: mistral-openapi
+        sourceRevisionDigest: sha256:d0ce984b4c030ab9d532545d8935f6e4e12ab160e77dc5ca0b8d5924f7d78480
+        sourceBlobDigest: sha256:72d88796291d78aaa55ee4eb609cfc5f62065ee3795180d4d57404c72aa19657
+        codeSamplesNamespace: mistral-openapi-code-samples
+        codeSamplesRevisionDigest: sha256:51f0cd2c7c43ba5b578527d2e4e2966c4b480a114fa0cafc9adefdbbb53d37d3
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: 1.763.6
+    sources:
+        mistral-azure-source:
+            inputs:
+                - location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi-azure:v2
+            output: ./packages/mistralai-azure/.speakeasy/azure.out.openapi.yaml
+        mistral-google-cloud-source:
+            inputs:
+                - location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi-google-cloud:v2
+            output: ./packages/mistralai-gcp/.speakeasy/gcp.out.openapi.yaml
+        mistral-openapi:
+            inputs:
+                - location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi:v2
+            output: .speakeasy/main.out.openapi.yaml
+    targets:
+        mistralai-azure-sdk:
+            target: typescript
+            source: mistral-azure-source
+            output: ./packages/mistralai-azure
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi-azure-code-samples
+                blocking: false
+        mistralai-gcp-sdk:
+            target: typescript
+            source: mistral-google-cloud-source
+            output: ./packages/mistralai-gcp
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi-google-cloud-code-samples
+                blocking: false
+        mistralai-sdk:
+            target: typescript
+            source: mistral-openapi
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/mistral-dev/mistral-dev/mistral-openapi-code-samples
+                blocking: false

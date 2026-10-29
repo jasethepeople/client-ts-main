@@ -1,0 +1,46 @@
+# GetStreamEventsV1WorkflowsEventsStreamGetData
+
+
+## Supported Types
+
+### `components.StreamEventSsePayload`
+
+```typescript
+const value: components.StreamEventSsePayload = {
+  stream: "<value>",
+  data: {
+    eventId: "<id>",
+    eventTimestamp: 739782,
+    rootWorkflowExecId: "<id>",
+    parentWorkflowExecId: "<id>",
+    continuedRunId: "<id>",
+    firstExecutionRunId: "<id>",
+    scheduleId: "<id>",
+    workflowExecId: "<id>",
+    workflowRunId: "<id>",
+    workflowName: "<value>",
+    attributes: {
+      taskId: "<id>",
+      failure: {
+        message: "<value>",
+      },
+    },
+  },
+  workflowContext: {
+    namespace: "<value>",
+    workflowName: "<value>",
+    workflowExecId: "<id>",
+  },
+  brokerSequence: 625764,
+};
+```
+
+### `components.WorkflowStreamError`
+
+```typescript
+const value: components.WorkflowStreamError = {
+  error: "<value>",
+  reason: "<value>",
+};
+```
+
